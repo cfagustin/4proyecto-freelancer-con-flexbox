@@ -1,0 +1,407 @@
+/*####################### ESTILOS POR DEFECTO #########################*/
+
+
+/*Utilizar Variables en un selector
+para luego utilizarlas*/
+
+:root {
+    /*Declaracion de una variable*/
+    --oscuro: #212121;
+    /*Otra variable para el color de los iconos*/
+    --primario: #ffc107;
+    /*Otra variable para el color del boton*/
+    --secundario: #0097a7;
+    /*Otra variable para definir el ancho maximo*/
+    --anchoPantalla: 1200px;
+    /*Otra variable para definir el color del formulario de contato*/
+    --gris: #757575;
+}
+
+
+/*Snipet de Paul Irish*/
+
+html {
+    box-sizing: border-box;
+    /*Definir bien el degradado al body*/
+    min-height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    /*Tipo de Fuente*/
+    font-family: 'Krub', sans-serif;
+    /*Definir bien el degradado al body*/
+    min-height: 100;
+    /*Color del degradado que se descargo en la pagina https://webgradients.com*/
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+h2,
+h3 {
+    /*Center texto horizontalmente*/
+    text-align: center;
+}
+
+
+/*Color a los texto de h3
+Diseño Web
+Aplicaciones Moviles
+Social Media*/
+
+h3 {
+    /*Aplicarle color a los texto*/
+    color: var(--secundario);
+    /*grueso de la fuente*/
+    font-weight: 400;
+    /*Tamaño de la fuente*/
+    font-size: 2rem;
+}
+
+
+/*Estilos a los parrafos*/
+
+p {
+    /*Fuente de los parrafos*/
+    font-size: 1.2rem;
+    /*Interlineado*/
+    line-height: 2;
+}
+
+
+/*######################################################*/
+
+
+/*SECCION 1 ENCABEZADO*/
+
+
+/*Colocar el fondo del encabezado en blanco*/
+
+.site-header {
+    background-color: white;
+}
+
+
+/**/
+
+.site-header nav {
+    /*Tamaño maximo*/
+    max-width: var(--anchoPantalla);
+    /*Margen */
+    margin: 0 auto;
+    /*Separacion arriba y abajo*/
+    padding: 2rem 0;
+    /*Habilitamos flex*/
+    display: flex;
+    /*Direccion de flex colocar los enlaces uno abajo del otro*/
+    flex-direction: column;
+    /*Centrar los enlaces*/
+    text-align: center;
+}
+
+
+/*Media Query cuando se vea a un dispositivo los enlaces se tiene que colocar uno abajo del otro*/
+
+@media (min-width: 768px) {
+    .site-header nav {
+        /*Cuando alcance el tamaño minimo 768px debe pasar a ser una fila uno debajo de otro */
+        flex-direction: row;
+        /*Para distribuir los enlaces de izquierda a derecha*/
+        justify-content: space-between;
+    }
+}
+
+
+/*Estilos a los enlaces a*/
+
+.site-header nav a {
+    /*color
+    Se utiliza la variable declarada anteriormente*/
+    color: var(--oscuro);
+    /*Tamaño de la fuente*/
+    font-size: 2.2rem;
+    /*Quitar la linea abajo del enlace*/
+    text-decoration: none;
+    /*marge abajo*/
+    margin-bottom: 2rem;
+}
+
+
+/*Quitar el margen de abajo de cada enlace cuando se vea en un dispositivo*/
+
+.site-header nav a:last-of-type {
+    margin-bottom: 0;
+}
+
+
+/*Media query Quita el margen de abajo de cada enlace cuando se vea en una computadora el sitio*/
+
+@media (min-width: 768px) {
+    .site-header nav a {
+        /*Quitamos el margen de abajo de cada enlace*/
+        margin-bottom: 0;
+    }
+}
+
+
+/*SECCION 2 IMAGEN PRINCIPAL*/
+
+.hero {
+    /*Altura fija*/
+    height: 45rem;
+    /*agregamos la imagen*/
+    background-image: url('../img/hero.jpg');
+    /**/
+    position: relative;
+    /**/
+    display: flex;
+    /*Centrar un elemento horizontalmente*/
+    justify-content: center;
+    /**/
+    align-items: center;
+}
+
+
+/*Seudoelemento*/
+
+.hero::after {
+    content: '';
+    /*color de fondo*/
+    background-color: rgba(0, 0, 0, .7);
+    /**/
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.contenedor-hero {
+    /*Color al parrafo*/
+    color: white;
+    /**/
+    position: relative;
+    /**/
+    z-index: 1;
+    /**/
+    text-align: center;
+}
+
+.contenedor-hero i {
+    font-size: 5rem;
+    /*Agregamos color al icono de ubicacion*/
+    color: var(--primario);
+}
+
+.boton {
+    /*Color de fondo*/
+    background-color: var(--secundario);
+    /**/
+    padding: .5rem 4rem;
+    /*Para colocarle un margen arriba primero se debe convertir en inline-block*/
+    display: inline-block;
+    /*Ahora si ya se puede color una separacion arriba*/
+    margin-top: 1rem;
+    /*color del texto*/
+    color: white;
+    /*En negrita el texto*/
+    font-weight: 600;
+    /*Tamaño del texto*/
+    font-size: 1.2rem;
+    /*Bordes redondeados*/
+    border-radius: .5rem;
+    /*convertir a mayuscula*/
+    text-transform: uppercase;
+    /*Quitar la linea de abajo del enlace*/
+    text-decoration: none;
+    /**/
+    border: none;
+}
+
+
+/**/
+
+.boton:hover {
+    cursor: pointer;
+}
+
+
+/**/
+
+.contenedor {
+    /*Anchura maxima*/
+    max-width: var(--anchoPantalla);
+    /*Separacion entre la imagen y el texto nuestros servicios
+    2rem: arriba y abajo
+    auto: isquierda y derecha*/
+    margin: 2rem auto;
+    /*Color de fondo*/
+    background-color: white;
+    /*Espacio alrededor del contenedor*/
+    padding: 3rem;
+    /*Borde*/
+    border-radius: 1rem;
+    /*UTILIZANDO CSSMATIC PARA EL SOMBREADO DEL CONTENEDOR*/
+    -webkit-box-shadow: 0px 6px 5px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 6px 5px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 6px 5px -2px rgba(0, 0, 0, 0.75);
+}
+
+
+/*Separacion entre el texto nuestros servicios y la parte de lso texto 
+de Diseño Web etc*/
+
+.contenedor-servicios {
+    margin-top: 2rem;
+}
+
+
+/**/
+
+@media (min-width: 768px) {
+    /*El padre*/
+    .contenedor-servicios {
+        /*Habilitamos el flex
+        Se colocan uno a la par del otro*/
+        display: flex;
+        /*Separacion entre ellos*/
+        justify-content: space-between;
+    }
+    /*El hijo*/
+    .servicio {
+        /*0: factor de crecimiento
+        */
+        flex: 0 0 calc(33.3% - 1rem);
+    }
+}
+
+
+/*Centrar los circulos amarillo y los iconos*/
+
+.servicio {
+    /*Habilitamos Flex*/
+    display: flex;
+    /**/
+    flex-direction: column;
+    /*Centramos*/
+    align-items: center;
+}
+
+
+/*Estilos a los iconos*/
+
+.iconos {
+    /*Ancho*/
+    width: 100px;
+    /*Altura*/
+    height: 100px;
+    /*Borde del Radio*/
+    border-radius: 50%;
+    /*Color de fondo del radio*/
+    background-color: var(--primario);
+    /**/
+    display: flex;
+    /*Separacion a los lados y al centro horizontalmente el icono*/
+    justify-content: space-evenly;
+    /*Centramos verticalmente el icono*/
+    align-items: center;
+    /*Margen arriba entre el texto y el circulo de los iconos*/
+    margin-top: 2rem;
+}
+
+.iconos {
+    /*Tamaño de los iconos*/
+    font-size: 2rem;
+}
+
+
+/*SECCION 4 ESTILOS AL FORMULARIO*/
+
+form {
+    /*Color de fondo*/
+    background-color: var(--gris);
+    /*Espacio hacia adentro del contenedor o del formulario*/
+    padding: 2rem;
+    /*Redondear las esquinas*/
+    border-radius: 1rem;
+    /*Separacion arriba*/
+    margin-top: 2rem;
+}
+
+
+/**/
+
+form legend {
+    /*Centrar el texto*/
+    text-align: center;
+    /*Tamaño de la fuente*/
+    font-size: 1.8rem;
+    /*color de la fuente*/
+    color: var(--primario);
+    /*Separacion*/
+    margin: 2rem 0;
+}
+
+
+/**/
+
+@media (min-width: 768px) {
+    form {
+        max-width: 800px;
+        margin: 2rem auto;
+    }
+    .contenedor-campos {
+        /*Coloca los campos uno frente a otro*/
+        display: flex;
+        /*uno a la izquierda y otra a la derecha*/
+        justify-content: space-between;
+        /**/
+        flex-wrap: wrap;
+    }
+    .campo {
+        flex: 0 0 calc(50% - 1rem);
+    }
+}
+
+.campo {
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    color: white;
+}
+
+.campo label {
+    flex: 0 0 90px;
+}
+
+.campo input {
+    flex: 1;
+    height: 2rem;
+}
+
+.campo textarea {
+    flex: 1;
+    height: 6rem;
+}
+
+.w-100 {
+    flex: 0 0 100%;
+}
+
+
+/*boton*/
+
+.enviar {
+    display: flex;
+    justify-content: flex-end;
+}
